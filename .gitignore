@@ -1,0 +1,7 @@
+node_modules/
+.env
+app/exports/
+*.csv
+*.gz
+logs/
+*.log

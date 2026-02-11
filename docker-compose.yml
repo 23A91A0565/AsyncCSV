@@ -1,0 +1,40 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: exporter
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: exports_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./seeds:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U exporter"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: ./app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - API_PORT=8080
+      - DATABASE_URL=postgresql://exporter:secret@db:5432/exports_db
+      - EXPORT_STORAGE_PATH=/app/exports
+    ports:
+      - "8080:8080"
+    mem_limit: 150m
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./app/exports:/app/exports
+
+volumes:
+  db-data:
