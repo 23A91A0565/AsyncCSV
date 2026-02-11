@@ -5,7 +5,6 @@ const db = require('./db');
 
 const activeJobs = new Map();
 
-
 async function startExport(job) {
   const { id, filters, columns, delimiter, quoteChar, filePath } = job;
   console.log(`Starting export job ${id}`);
