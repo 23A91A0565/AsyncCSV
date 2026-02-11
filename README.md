@@ -73,6 +73,7 @@ Response: `204 No Content`
 
 
 ## Project Structure
+
 - [docker-compose.yml](docker-compose.yml): Orchestrates app + database
 - [app/Dockerfile](app/Dockerfile): App container
 - [app/src/index.js](app/src/index.js): API server
