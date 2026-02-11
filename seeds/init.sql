@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
     lifetime_value NUMERIC(10, 2) DEFAULT 0.00
 );
 
+
 -- Indexes
 CREATE INDEX IF NOT EXISTS idx_users_country_code ON users(country_code);
 CREATE INDEX IF NOT EXISTS idx_users_subscription_tier ON users(subscription_tier);
