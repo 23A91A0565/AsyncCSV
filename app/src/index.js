@@ -39,6 +39,7 @@ app.post('/exports/csv', async (req, res) => {
   res.status(202).json({ exportId: id, status: 'pending' });
 });
 
+
 app.get('/exports/:id/status', async (req, res) => {
   const id = req.params.id;
   const r = await db.query('SELECT id, status, total_rows, processed_rows, error, created_at, completed_at, columns FROM exports WHERE id = $1', [id]);
