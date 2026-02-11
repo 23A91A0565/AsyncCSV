@@ -2,6 +2,7 @@
 
 This project implements a large-scale CSV export service with asynchronous streaming, progress tracking, resumable downloads, and optional gzip compression. It is fully containerized and runs with a single docker-compose command.
 
+
 ## Requirements
 - Docker + Docker Compose
 
