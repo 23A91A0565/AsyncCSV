@@ -71,6 +71,7 @@ Supports:
 
 Response: `204 No Content`
 
+
 ## Project Structure
 - [docker-compose.yml](docker-compose.yml): Orchestrates app + database
 - [app/Dockerfile](app/Dockerfile): App container
