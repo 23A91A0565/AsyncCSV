@@ -48,6 +48,7 @@ async function startExport(job) {
     let cancelled = false;
     activeJobs.set(id, { cancel: () => { cancelled = true; stream.destroy(new Error('cancelled')); csvStream.end(); } });
 
+
     
     stream.on('data', (row) => {
       if (cancelled) return;
