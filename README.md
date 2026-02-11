@@ -23,6 +23,7 @@ All required variables are documented in [.env.example](.env.example).
 ### Health
 `GET /health`
 
+
 Response:
 ```json
 {"status":"ok"}
